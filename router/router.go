@@ -15,7 +15,7 @@ func NewRouter(uc controller.IUserController, tc controller.ITaskController) *ec
 	e.POST("/login", uc.LogIn)
 	e.POST("/logout", uc.LogOut)
 	t := e.Group("/tasks")
-	// エンドポイントにミドルウェアの追加
+	// エンドポイントにミドルウェアの追加(デコードし、scho.contextにuserというフィールド名をつけて格納)
 	t.Use(echojwt.WithConfig(echojwt.Config{
 		// 生成時に指定したJWTトークンを選択
 		SigningKey: []byte(os.Getenv("SECRET")),
