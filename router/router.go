@@ -18,7 +18,7 @@ func NewRouter(uc controller.IUserController, tc controller.ITaskController) *ec
 		AllowOrigins: []string{"http://localhost:3000", os.Getenv("FE_URL")},
 		// 許可するヘッダー一覧
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept,
-		echo.HeaderAccessControlAllowCredentials, echo.HeaderXCSRFToken},
+		echo.HeaderAccessControlAllowHeaders, echo.HeaderXCSRFToken},
 		AllowMethods: []string{"GET", "PUT", "POST", "DELETE"},
 		// cookieの送受信可否
 		AllowCredentials: true,
